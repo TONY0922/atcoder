@@ -1,47 +1,22 @@
-# def get_min_point(points, ratio)
-#
-#   count = 1
-#
-#   while true
-#     tmp = ratio.map {|x| x * count}
-#
-#     [0, 1].each do |i|
-#       if points[i] < tmp[i]
-#         points[i] = tmp[i]
-#       end
-#     end
-#
-#     break if [0, 1].all? do |i|
-#       points[i] == tmp[i]
-#     end
-#
-#     count += 1
-#   end
-#
-#   points
-# end
-
 def get_min_point(points, ratio)
 
-  count = 1
+  ap, bp = points
+  ar, br = ratio
 
-  while true
-    tmp = ratio.map {|x| x * count}
+  an = get_min_count(ap, ar)
+  bn = get_min_count(bp, br)
 
-    [0, 1].each do |i|
-      if points[i] < tmp[i]
-        points[i] = tmp[i]
-      end
-    end
+  mn = [an, bn].max
+  result = [ar*mn, br*mn]
+  result
+end
 
-    break if [0, 1].all? do |i|
-      points[i] == tmp[i]
-    end
-
-    count += 1
+def get_min_count(ap, ar)
+  if ap % ar == 0
+    (ap / ar)
+  else
+    (ap / ar) + 1
   end
-
-  points
 end
 
 inputs = readlines.map(&:chomp)
