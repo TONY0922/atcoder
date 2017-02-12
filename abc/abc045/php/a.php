@@ -4,7 +4,7 @@
   http://abc045.contest.atcoder.jp/tasks/abc045_a
 */
 
-$stdins = [];
+stdins = [];
 while(true) {
   $stdin = trim(fgets(STDIN));
   if ($stdin === '') {
@@ -12,6 +12,8 @@ while(true) {
   }
   $stdins[] = $stdin;
 }
+
+
 
 
  ?>
